@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Choose Your Adventure</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes buttonHover {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px argba(0, 123, 255, 0.2);
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h4 {
+            margin: 20px 0;
+            font-size: 24px;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+            transition: transform 0.2s ease-in-out, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            animation: buttonHover 0.6s ease-in-out;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ img_path }}" alt="Choose Your Own Adventure">
+        <h4>{{ story }}</h4>
+        <form action="/submit" method="post" class="choices">
+            <button type="submit" name="choice" value="{{ button_name1 }}">{{ button_name1 }}</button>
+            <button type="submit" name="choice" value="{{ button_name2 }}">{{ button_name2 }}</button>
+        </form>
+    </div>
+</body>
+</html>
